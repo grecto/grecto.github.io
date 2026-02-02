@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Rizal - Interactive Educational Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button {
+            background: #D4E157;
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-button:hover {
+            background: #C0CA33;
+            transform: translateY(-2px);
+        }
+
+        .nav-button.active {
+            background: black;
+            color: #D4E157;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Homepage Styles */
+        #homepage {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23333"/></svg>');
+            background-size: cover;
+        }
+
+        .home-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .home-title {
+            font-size: 48px;
+            color: #D4E157;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-subtitle {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .intro-section h2 {
+            color: #D4E157;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .themes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .theme-card {
+            background: rgba(212, 225, 87, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .theme-card h3 {
+            color: #D4E157;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* Works Page Styles */
+        #works-page {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23443"/></svg>');
+            background-size: cover;
+        }
+
+        .works-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: #D4E157;
+            margin-bottom: 30px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .works-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .works-section h2 {
+            color: #D4E157;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .works-section ul {
+            list-style: none;
+        }
+
+        .works-section li {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .works-section li strong {
+            color: #D4E157;
+        }
+
+        /* Analysis Page Styles */
+        #analysis-page {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23234"/></svg>');
+            background-size: cover;
+        }
+
+        .analysis-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .analysis-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .analysis-box h2 {
+            color: #D4E157;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .analysis-box ul {
+            list-style: disc;
+            padding-left: 25px;
+        }
+
+        .analysis-box li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .guide-questions {
+            background: rgba(33, 150, 243, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .guide-questions h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .guide-questions ol {
+            padding-left: 25px;
+        }
+
+        .guide-questions li {
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .relevance-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .relevance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Gallery Page Styles */
+        #gallery-page {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23555"/></svg>');
+            background-size: cover;
+        }
+
+        .gallery-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 300px;
+            background: rgba(212, 225, 87, 0.2);
+            border: 2px dashed #D4E157;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .gallery-item h3 {
+            color: #D4E157;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Resources Page Styles */
+        #resources-page {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23345"/></svg>');
+            background-size: cover;
+        }
+
+        .resources-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .resources-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .resources-section h2 {
+            color: #D4E157;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .resources-section ul {
+            list-style: none;
+        }
+
+        .resources-section li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .resources-section li:before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+            
+            .nav-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .themes,
+            .works-grid,
+            .analysis-grid,
+            .gallery-grid,
+            .relevance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="nav-button active" onclick="showPage('homepage')">HOME PAGE</button>
+        <button class="nav-button" onclick="showPage('works-page')">WORKS PAGE</button>
+        <button class="nav-button" onclick="showPage('analysis-page')">ANALYSIS PAGE</button>
+        <button class="nav-button" onclick="showPage('gallery-page')">GALLERY PAGE</button>
+        <button class="nav-button" onclick="showPage('resources-page')">RESOURCES PAGE</button>
+    </nav>
+
+    <!-- Homepage -->
+    <div id="homepage" class="page active">
+        <div class="home-content">
+            <h1 class="home-title">Biography of Jose Rizal</h1>
+            <p class="home-subtitle">National hero, writer, reformist<br>
+            Advocate of education and peaceful reform<br>
+            Execution in 1896 and lasting influence</p>
+
+            <div class="intro-section">
+                <h2>Rizal: Letter to the Women of Malolos (1889)</h2>
+                <h3 style="color: #D4E157; margin-bottom: 20px;">Introduction</h3>
+                <p>Jose Rizal's "Letter to the Women of Malolos" praises the women for courageously standing up for their right to education. He urges them to pursue learning, develop independent thinking, and not simply follow orders without question. Rizal emphasizes that educated women play a key role in nurturing informed children and contributing to the progress and freedom of the nation.</p>
+            </div>
+
+            <div class="themes">
+                <div class="theme-card">
+                    <h3>Education</h3>
+                    <p>Women as moral educators of children.</p>
+                </div>
+                <div class="theme-card">
+                    <h3>Courage</h3>
+                    <p>Courage to seek education despite colonial restrictions</p>
+                </div>
+                <div class="theme-card">
+                    <h3>Equality</h3>
+                    <p>Advocacy for equality and enlightenment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Works Page -->
+    <div id="works-page" class="page">
+        <div class="works-content">
+            <h1 class="section-title">Primary Sources on Jose Rizal</h1>
+            
+            <p style="font-size: 18px; margin-bottom: 30px; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
+                Primary sources related to José Rizal consist of works written by him and documents produced during his lifetime that provide direct insight into his ideals, and experiences.
+            </p>
+
+            <div class="works-grid">
+                <div class="works-section">
+                    <h2>Novels</h2>
+                    <ul>
+                        <li><strong>Noli Me Tangere (1887)</strong>, which depicts the social conditions of the Philippines and criticizes the abuses of the Spanish clergy and government.</li>
+                        <li><strong>El Filibusterismo (1891)</strong>, a sequel that presents a more radical and pessimistic view of reform and revolution.</li>
+                    </ul>
+                </div>
+
+                <div class="works-section">
+                    <h2>Importance of Rizal's Life and Works</h2>
+                    <p style="margin-bottom: 20px;">José Rizal's life and writings reflect the social realities of the Philippines under Spanish rule. His peaceful approach to reform, emphasis on education, and deep love for country continue to influence Filipino identity and nationalism. Through his works and sacrifice, Rizal remains a central figure in Philippine history and a symbol of intellectual resistance against colonial oppression.</p>
+                </div>
+
+                <div class="works-section">
+                    <h2>Essays and Political Writings</h2>
+                    <ul>
+                        <li><strong>"La Indolencia de los Filipinos,"</strong> an essay analyzing the causes of the perceived indolence of Filipinos under colonial rule.</li>
+                        <li><strong>"The Philippines a Century Hence,"</strong> a series of articles forecasting the future political development of the Philippines.</li>
+                        <li><strong>Articles published in La Solidaridad</strong>, the official publication of the Propaganda Movement.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analysis Page -->
+    <div id="analysis-page" class="page">
+        <div class="analysis-content">
+            <h1 class="section-title">Rizal: Letter to the Women of Malolos (1889)</h1>
+
+            <div class="analysis-grid">
+                <div class="analysis-box">
+                    <h2>Historical Context</h2>
+                    <ul>
+                        <li><strong>Spanish colonial Philippines</strong> – The Philippines was under Spanish rule, with strict social and religious control.</li>
+                        <li><strong>Limited access to education for women.</strong></li>
+                        <li><strong>Women of Malolos petitioned</strong> to open a night school to learn Spanish.</li>
+                        <li><strong>Opposition from Spanish friars</strong></li>
+                        <li><strong>Rizal's support and encouragement</strong> through the letter</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-box">
+                    <h2>Key Figures</h2>
+                    <ul>
+                        <li><strong>Women of Malolos</strong></li>
+                        <li>Symbol of empowered Filipina women</li>
+                        <li>Challenged colonial and religious authority</li>
+                        <li><strong>Jose Rizal</strong></li>
+                        <li>Advocate of women's education and equality</li>
+                        <li>Believed educated women raise free-thinking citizens</li>
+                        <li><strong>Spanish Friars (Symbolic)</strong></li>
+                        <li>Representation of oppressive authority</li>
+                        <li>Control over education and beliefs</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-box">
+                    <h2>Summary of the Letter</h2>
+                    <ul>
+                        <li>Rizal praises the courage of the women</li>
+                        <li>Encourages critical thinking and self-respect</li>
+                        <li>Warns against blind obedience and religious abuse</li>
+                        <li>Emphasizes that ignorance is a form of slavery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-questions">
+                <h2>Guide Questions</h2>
+                <ol>
+                    <li><strong>Why did Rizal emphasize education for women?</strong></li>
+                    <li><strong>How did the women of Malolos challenge colonial norms?</strong></li>
+                    <li><strong>What dangers did Rizal see in blind obedience?</strong></li>
+                </ol>
+            </div>
+
+            <div class="relevance-section">
+                <h2 style="color: #D4E157; margin-bottom: 20px;">Relevance to Contemporary Issues</h2>
+                <div class="relevance-grid">
+                    <div>
+                        <ul style="list-style: disc; padding-left: 25px;">
+                            <li><strong>Gender Equality</strong></li>
+                            <li><strong>Women still fight for equal access to education and leadership</strong></li>
+                            <li><strong>Critical Thinking</strong></li>
+                            <li><strong>Importance of questioning misinformation and authority</strong></li>
+                            <li><strong>Social Responsibility</strong></li>
+                            <li><strong>Role of women in shaping ethical and informed citizens</strong></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4E157; margin-bottom: 15px;">Enduring Message of the Letter</h3>
+                        <ul style="list-style: disc; padding-left: 25px;">
+                            <li>Education leads to freedom.</li>
+                            <li>Women are equal partners in nation-building</li>
+                            <li>True faith is guided by reason, not fear</li>
+                        </ul>
+                        <h3 style="color: #D4E157; margin: 20px 0 15px 0;">Inspiration for Social Action</h3>
+                        <ul style="list-style: disc; padding-left: 25px;">
+                            <li>Encourages women to speak up</li>
+                            <li>Promotes active citizenship</li>
+                            <li>Inspires support for education and empowerment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery-page" class="page">
+        <div class="gallery-content">
+            <h1 class="section-title">Historical Images of the Women of Malolos</h1>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Photos of Malolos, Bulacan</span>
+                    </div>
+                    <h3>Historic Malolos</h3>
+                    <p>Historical photographs of Malolos, Bulacan during the Spanish colonial period</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Letter of Rizal</span>
+                    </div>
+                    <h3>Letter to the Women of Malolos</h3>
+                    <p>Original document of Rizal's letter praising the courage of Malolos women</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Historical Images</span>
+                    </div>
+                    <h3>The Women of Malolos</h3>
+                    <p>Portraits and photographs of the brave women who fought for education</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Jose Rizal Portrait</span>
+                    </div>
+                    <h3>Jose Rizal</h3>
+                    <p>Philippine national hero and advocate for education and reform</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Colonial Era Schools</span>
+                    </div>
+                    <h3>Education in Colonial Philippines</h3>
+                    <p>Images of schools and educational institutions during Spanish rule</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="color: #D4E157; font-size: 18px;">Women's Movement</span>
+                    </div>
+                    <h3>Filipino Women's Empowerment</h3>
+                    <p>Historical documentation of the women's rights movement in the Philippines</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resources Page -->
+    <div id="resources-page" class="page">
+        <div class="resources-content">
+            <h1 class="section-title">Primary Sources on Jose Rizal</h1>
+
+            <div class="resources-section">
+                <h2>Essential Readings</h2>
+                <ul>
+                    <li><strong>Noli Me Tangere (1887)</strong> - Rizal's first novel exposing the social conditions of the Philippines</li>
+                    <li><strong>El Filibusterismo (1891)</strong> - The sequel presenting a more radical view of reform</li>
+                    <li><strong>Letter to the Women of Malolos (1889)</strong> - Encouraging women's education and empowerment</li>
+                    <li><strong>La Indolencia de los Filipinos</strong> - Essay analyzing Filipino indolence under colonial rule</li>
+                    <li><strong>The Philippines a Century Hence</strong> - Articles forecasting political development</li>
+                </ul>
+            </div>
+
+            <div class="resources-section">
+                <h2>Recommended Books</h2>
+                <ul>
+                    <li>"The Making of a Hero: The Story of Jose Rizal" by Austin Coates</li>
+                    <li>"Rizal Without the Overcoat" by Ambeth R. Ocampo</li>
+                    <li>"Jose Rizal: Life, Works, and Writings" by Gregorio F. Zaide</li>
+                    <li>"Noli Me Tangere: A Complete English Translation" (Various editions)</li>
+                </ul>
+            </div>
+
+            <div class="resources-section">
+                <h2>Digital Resources</h2>
+                <ul>
+                    <li>Project Gutenberg - Free digital copies of Rizal's works</li>
+                    <li>National Historical Commission of the Philippines (NHCP) website</li>
+                    <li>Rizal Library digital archives</li>
+                    <li>Philippine National Museum online collections</li>
+                    <li>University of the Philippines Diliman - Rizal Studies resources</li>
+                </ul>
+            </div>
+
+            <div class="resources-section">
+                <h2>Museums and Historical Sites</h2>
+                <ul>
+                    <li>Rizal Shrine in Calamba, Laguna (birthplace)</li>
+                    <li>Fort Santiago, Intramuros, Manila (final detention)</li>
+                    <li>Rizal Park (Luneta), Manila</li>
+                    <li>Rizal Museum in Fort Santiago</li>
+                    <li>Barasoain Church, Malolos, Bulacan (related to the Women of Malolos)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
