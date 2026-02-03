@@ -68,12 +68,67 @@
         #homepage {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%23333"/></svg>');
             background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
         .home-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 40px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .home-left-image {
+            position: sticky;
+            top: 100px;
+        }
+
+        .rizal-portrait {
+            width: 100%;
+            height: 500px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #D4E157;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rizal-portrait:hover {
+            border-color: #C0CA33;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.3);
+        }
+
+        .rizal-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portrait-placeholder {
+            color: #D4E157;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .portrait-placeholder-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .home-right-content {
+            flex: 1;
         }
 
         .home-title {
@@ -279,6 +334,13 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.3);
         }
 
         .gallery-placeholder {
@@ -291,6 +353,25 @@
             justify-content: center;
             margin-bottom: 15px;
             border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-upload-text {
+            color: #D4E157;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .gallery-upload-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
         .gallery-item h3 {
@@ -351,6 +432,20 @@
                 padding: 10px 20px;
                 font-size: 14px;
             }
+
+            .home-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .home-left-image {
+                position: relative;
+                top: 0;
+            }
+
+            .rizal-portrait {
+                height: 400px;
+            }
             
             .themes,
             .works-grid,
@@ -375,29 +470,43 @@
     <!-- Homepage -->
     <div id="homepage" class="page active">
         <div class="home-content">
-            <h1 class="home-title">Biography of Jose Rizal</h1>
-            <p class="home-subtitle">National hero, writer, reformist<br>
-            Advocate of education and peaceful reform<br>
-            Execution in 1896 and lasting influence</p>
-
-            <div class="intro-section">
-                <h2>Rizal: Letter to the Women of Malolos (1889)</h2>
-                <h3 style="color: #D4E157; margin-bottom: 20px;">Introduction</h3>
-                <p>Jose Rizal's "Letter to the Women of Malolos" praises the women for courageously standing up for their right to education. He urges them to pursue learning, develop independent thinking, and not simply follow orders without question. Rizal emphasizes that educated women play a key role in nurturing informed children and contributing to the progress and freedom of the nation.</p>
+            <!-- Left Side Portrait -->
+            <div class="home-left-image">
+                <input type="file" id="portraitImageInput" accept="image/*" style="display: none;">
+                <div class="rizal-portrait" onclick="document.getElementById('portraitImageInput').click()">
+                    <div class="portrait-placeholder">
+                        <div class="portrait-placeholder-icon">🖼️</div>
+                        <div>Click to add<br>Jose Rizal's Portrait</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="themes">
-                <div class="theme-card">
-                    <h3>Education</h3>
-                    <p>Women as moral educators of children.</p>
+            <!-- Right Side Content -->
+            <div class="home-right-content">
+                <h1 class="home-title">Biography of Jose Rizal</h1>
+                <p class="home-subtitle">National hero, writer, reformist<br>
+                Advocate of education and peaceful reform<br>
+                Execution in 1896 and lasting influence</p>
+
+                <div class="intro-section">
+                    <h2>Rizal: Letter to the Women of Malolos (1889)</h2>
+                    <h3 style="color: #D4E157; margin-bottom: 20px;">Introduction</h3>
+                    <p>Jose Rizal's "Letter to the Women of Malolos" praises the women for courageously standing up for their right to education. He urges them to pursue learning, develop independent thinking, and not simply follow orders without question. Rizal emphasizes that educated women play a key role in nurturing informed children and contributing to the progress and freedom of the nation.</p>
                 </div>
-                <div class="theme-card">
-                    <h3>Courage</h3>
-                    <p>Courage to seek education despite colonial restrictions</p>
-                </div>
-                <div class="theme-card">
-                    <h3>Equality</h3>
-                    <p>Advocacy for equality and enlightenment</p>
+
+                <div class="themes">
+                    <div class="theme-card">
+                        <h3>Education</h3>
+                        <p>Women as moral educators of children.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h3>Courage</h3>
+                        <p>Courage to seek education despite colonial restrictions</p>
+                    </div>
+                    <div class="theme-card">
+                        <h3>Equality</h3>
+                        <p>Advocacy for equality and enlightenment</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -528,49 +637,73 @@
             <h1 class="section-title">Historical Images of the Women of Malolos</h1>
             
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Photos of Malolos, Bulacan</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery1').click()">
+                    <input type="file" id="gallery1" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-1')">
+                    <div class="gallery-placeholder" id="gallery-img-1">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">🖼️</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>Historic Malolos</h3>
                     <p>Historical photographs of Malolos, Bulacan during the Spanish colonial period</p>
                 </div>
 
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Letter of Rizal</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery2').click()">
+                    <input type="file" id="gallery2" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-2')">
+                    <div class="gallery-placeholder" id="gallery-img-2">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">📜</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>Letter to the Women of Malolos</h3>
                     <p>Original document of Rizal's letter praising the courage of Malolos women</p>
                 </div>
 
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Historical Images</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery3').click()">
+                    <input type="file" id="gallery3" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-3')">
+                    <div class="gallery-placeholder" id="gallery-img-3">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">👥</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>The Women of Malolos</h3>
                     <p>Portraits and photographs of the brave women who fought for education</p>
                 </div>
 
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Jose Rizal Portrait</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery4').click()">
+                    <input type="file" id="gallery4" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-4')">
+                    <div class="gallery-placeholder" id="gallery-img-4">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">🎭</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>Jose Rizal</h3>
                     <p>Philippine national hero and advocate for education and reform</p>
                 </div>
 
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Colonial Era Schools</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery5').click()">
+                    <input type="file" id="gallery5" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-5')">
+                    <div class="gallery-placeholder" id="gallery-img-5">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">🏫</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>Education in Colonial Philippines</h3>
                     <p>Images of schools and educational institutions during Spanish rule</p>
                 </div>
 
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <span style="color: #D4E157; font-size: 18px;">Women's Movement</span>
+                <div class="gallery-item" onclick="document.getElementById('gallery6').click()">
+                    <input type="file" id="gallery6" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-6')">
+                    <div class="gallery-placeholder" id="gallery-img-6">
+                        <div class="gallery-upload-text">
+                            <div class="gallery-upload-icon">✊</div>
+                            <div>Click to add image</div>
+                        </div>
                     </div>
                     <h3>Filipino Women's Empowerment</h3>
                     <p>Historical documentation of the women's rights movement in the Philippines</p>
@@ -648,6 +781,58 @@
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Handle portrait image upload
+        document.getElementById('portraitImageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const portrait = document.querySelector('.rizal-portrait');
+                    portrait.innerHTML = `<img src="${event.target.result}" alt="Jose Rizal Portrait">`;
+                    
+                    // Save to localStorage
+                    localStorage.setItem('portraitImage', event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle gallery image uploads
+        function loadGalleryImage(event, containerId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const container = document.getElementById(containerId);
+                    container.innerHTML = `<img src="${e.target.result}" alt="Gallery Image">`;
+                    
+                    // Save to localStorage
+                    localStorage.setItem(containerId, e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Load saved images on page load
+        window.addEventListener('load', function() {
+            // Load portrait image
+            const savedPortrait = localStorage.getItem('portraitImage');
+            if (savedPortrait) {
+                const portrait = document.querySelector('.rizal-portrait');
+                portrait.innerHTML = `<img src="${savedPortrait}" alt="Jose Rizal Portrait">`;
+            }
+
+            // Load gallery images
+            for (let i = 1; i <= 6; i++) {
+                const galleryId = `gallery-img-${i}`;
+                const savedGallery = localStorage.getItem(galleryId);
+                if (savedGallery) {
+                    const container = document.getElementById(galleryId);
+                    container.innerHTML = `<img src="${savedGallery}" alt="Gallery Image">`;
+                }
+            }
+        });
     </script>
 </body>
 </html>
