@@ -97,34 +97,14 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            cursor: pointer;
-            transition: all 0.3s;
             position: relative;
             overflow: hidden;
-        }
-
-        .rizal-portrait:hover {
-            border-color: #C0CA33;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.3);
         }
 
         .rizal-portrait img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .portrait-placeholder {
-            color: #D4E157;
-            font-size: 18px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .portrait-placeholder-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
         }
 
         .home-right-content {
@@ -334,13 +314,6 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 225, 87, 0.3);
         }
 
         .gallery-placeholder {
@@ -361,17 +334,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .gallery-upload-text {
-            color: #D4E157;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .gallery-upload-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
         }
 
         .gallery-item h3 {
@@ -469,15 +431,16 @@
 
     <!-- Homepage -->
     <div id="homepage" class="page active">
+        <!-- TO CHANGE BACKGROUND: Edit the style attribute below and replace 'YOUR_BACKGROUND_IMAGE_URL' with your image URL -->
+        <!-- Example: style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://example.com/your-image.jpg');" -->
+        
         <div class="home-content">
             <!-- Left Side Portrait -->
             <div class="home-left-image">
-                <input type="file" id="portraitImageInput" accept="image/*" style="display: none;">
-                <div class="rizal-portrait" onclick="document.getElementById('portraitImageInput').click()">
-                    <div class="portrait-placeholder">
-                        <div class="portrait-placeholder-icon">🖼️</div>
-                        <div>Click to add<br>Jose Rizal's Portrait</div>
-                    </div>
+                <div class="rizal-portrait">
+                    <img src="https://image2url.com/r2/default/images/1770187054049-858297d1-4c65-4665-94ba-da29c26506e0.webp" alt="Jose Rizal Portrait">
+                    <!-- TO ADD PORTRAIT: Uncomment the line below and replace 'YOUR_PORTRAIT_IMAGE_URL' with your image URL -->
+                    <!-- <img src="YOUR_PORTRAIT_IMAGE_URL" alt="Jose Rizal Portrait"> -->
                 </div>
             </div>
 
@@ -488,11 +451,12 @@
                 Advocate of education and peaceful reform<br>
                 Execution in 1896 and lasting influence</p>
 
-                <div class="intro-section">
+                <div class="intro-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://image2url.com/r2/default/images/1770186956386-8c8121f8-a941-4fcb-b871-4bc28e291789.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <h2>Rizal: Letter to the Women of Malolos (1889)</h2>
                     <h3 style="color: #D4E157; margin-bottom: 20px;">Introduction</h3>
                     <p>Jose Rizal's "Letter to the Women of Malolos" praises the women for courageously standing up for their right to education. He urges them to pursue learning, develop independent thinking, and not simply follow orders without question. Rizal emphasizes that educated women play a key role in nurturing informed children and contributing to the progress and freedom of the nation.</p>
                 </div>
+
 
                 <div class="themes">
                     <div class="theme-card">
@@ -544,6 +508,63 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- New Sections -->
+            <div style="margin-top: 50px;">
+                <h1 class="section-title">Rizal: Letter to the Women of Malolos (1889)</h1>
+                
+                <div class="works-grid" style="margin-top: 30px;">
+                    <div class="works-section">
+                        <h2>1. Historical Context</h2>
+                        <ul>
+                            <li><strong>Spanish colonial Philippines</strong> – The Philippines was under Spanish rule, with strict social and religious control.</li>
+                            <li><strong>Limited access to education for women</strong></li>
+                            <li><strong>Women of Malolos petitioned</strong> to open a night school to learn Spanish</li>
+                            <li><strong>Opposition from Spanish friars</strong></li>
+                            <li><strong>Rizal's support and encouragement</strong> through the letter</li>
+                        </ul>
+                    </div>
+
+                    <div class="works-section">
+                        <h2>2. Summary of the Letter</h2>
+                        <ul>
+                            <li><strong>Rizal praises the courage of the women</strong></li>
+                            <li><strong>Encourages critical thinking and self-respect</strong></li>
+                            <li><strong>Warns against blind obedience and religious abuse</strong></li>
+                            <li><strong>Emphasizes that ignorance is a form of slavery</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="works-section" style="margin-top: 30px;">
+                    <h2>3. Key Figures / Subjects</h2>
+                    <p style="margin-bottom: 20px; font-style: italic;">In-depth discussion of 2–3 key subjects:</p>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #D4E157; font-size: 22px; margin-bottom: 10px;">Women of Malolos</h3>
+                        <ul>
+                            <li>Symbol of empowered Filipina women</li>
+                            <li>Challenged colonial and religious authority</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #D4E157; font-size: 22px; margin-bottom: 10px;">José Rizal</h3>
+                        <ul>
+                            <li>Advocate of women's education and equality</li>
+                            <li>Believed educated women raise free-thinking citizens</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: #D4E157; font-size: 22px; margin-bottom: 10px;">Spanish Friars (Symbolic)</h3>
+                        <ul>
+                            <li>Representation of oppressive authority</li>
+                            <li>Control over education and beliefs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -552,51 +573,44 @@
         <div class="analysis-content">
             <h1 class="section-title">Rizal: Letter to the Women of Malolos (1889)</h1>
 
-            <div class="analysis-grid">
-                <div class="analysis-box">
-                    <h2>Historical Context</h2>
-                    <ul>
-                        <li><strong>Spanish colonial Philippines</strong> – The Philippines was under Spanish rule, with strict social and religious control.</li>
-                        <li><strong>Limited access to education for women.</strong></li>
-                        <li><strong>Women of Malolos petitioned</strong> to open a night school to learn Spanish.</li>
-                        <li><strong>Opposition from Spanish friars</strong></li>
-                        <li><strong>Rizal's support and encouragement</strong> through the letter</li>
-                    </ul>
-                </div>
-
-                <div class="analysis-box">
-                    <h2>Key Figures</h2>
-                    <ul>
-                        <li><strong>Women of Malolos</strong></li>
-                        <li>Symbol of empowered Filipina women</li>
-                        <li>Challenged colonial and religious authority</li>
-                        <li><strong>Jose Rizal</strong></li>
-                        <li>Advocate of women's education and equality</li>
-                        <li>Believed educated women raise free-thinking citizens</li>
-                        <li><strong>Spanish Friars (Symbolic)</strong></li>
-                        <li>Representation of oppressive authority</li>
-                        <li>Control over education and beliefs</li>
-                    </ul>
-                </div>
-
-                <div class="analysis-box">
-                    <h2>Summary of the Letter</h2>
-                    <ul>
-                        <li>Rizal praises the courage of the women</li>
-                        <li>Encourages critical thinking and self-respect</li>
-                        <li>Warns against blind obedience and religious abuse</li>
-                        <li>Emphasizes that ignorance is a form of slavery</li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="guide-questions">
                 <h2>Guide Questions</h2>
-                <ol>
-                    <li><strong>Why did Rizal emphasize education for women?</strong></li>
-                    <li><strong>How did the women of Malolos challenge colonial norms?</strong></li>
-                    <li><strong>What dangers did Rizal see in blind obedience?</strong></li>
-                </ol>
+                
+                <div style="margin-bottom: 25px;">
+                    <details style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; cursor: pointer;">
+                        <summary style="font-size: 18px; font-weight: normal; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>1. Why did Rizal emphasize education for women?</span>
+                            <span style="font-size: 24px;">▼</span>
+                        </summary>
+                        <p style="font-size: 16px; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(212, 225, 87, 0.3);">
+                            Rizal believed that educated women are essential to raising free-thinking citizens and breaking the cycle of ignorance. As mothers and educators, women shape future generations, making their education critical for national progress and liberation from colonial oppression.
+                        </p>
+                    </details>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <details style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; cursor: pointer;">
+                        <summary style="font-size: 18px; font-weight: normal; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>2. How did the women of Malolos challenge colonial norms?</span>
+                            <span style="font-size: 24px;">▼</span>
+                        </summary>
+                        <p style="font-size: 16px; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(212, 225, 87, 0.3);">
+                            The women of Malolos defied colonial expectations by petitioning for a night school to learn Spanish, despite opposition from Spanish friars. In a patriarchal society, their bold assertion of the right to education challenged both religious and colonial authority, making them symbols of Filipino resistance.
+                        </p>
+                    </details>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <details style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; cursor: pointer;">
+                        <summary style="font-size: 18px; font-weight: normal; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>3. What dangers did Rizal see in blind obedience?</span>
+                            <span style="font-size: 24px;">▼</span>
+                        </summary>
+                        <p style="font-size: 16px; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(212, 225, 87, 0.3);">
+                            Rizal warned that blind obedience prevents critical thinking and makes people vulnerable to exploitation. He believed unquestioning submission to authority keeps people ignorant and oppressed, emphasizing that true faith should be guided by reason, not fear.
+                        </p>
+                    </details>
+                </div>
             </div>
 
             <div class="relevance-section">
@@ -631,79 +645,74 @@
         </div>
     </div>
 
+
     <!-- Gallery Page -->
     <div id="gallery-page" class="page">
         <div class="gallery-content">
             <h1 class="section-title">Historical Images of the Women of Malolos</h1>
             
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="document.getElementById('gallery1').click()">
-                    <input type="file" id="gallery1" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-1')">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-1">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">🖼️</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187242634-b9ea9fde-60dd-490a-9bd3-8f99ea824492.jfif" alt="Historic Malolos">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="YOUR_IMAGE_URL" alt="Historic Malolos"> -->
                     </div>
                     <h3>Historic Malolos</h3>
                     <p>Historical photographs of Malolos, Bulacan during the Spanish colonial period</p>
                 </div>
 
-                <div class="gallery-item" onclick="document.getElementById('gallery2').click()">
-                    <input type="file" id="gallery2" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-2')">
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-2">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">📜</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187300415-ef89f1bf-eb5e-4a0d-861f-648c300683ff.jfif" alt="Letter to the Women of Malolos">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="YOUR_IMAGE_URL" alt="Letter to the Women of Malolos"> -->
                     </div>
                     <h3>Letter to the Women of Malolos</h3>
                     <p>Original document of Rizal's letter praising the courage of Malolos women</p>
                 </div>
 
-                <div class="gallery-item" onclick="document.getElementById('gallery3').click()">
-                    <input type="file" id="gallery3" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-3')">
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-3">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">👥</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187358250-6ec8d0f8-cf8a-47ef-bfba-8e676390f1f2.jfif" alt="The Women of Malolos">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="YOUR_IMAGE_URL" alt="The Women of Malolos"> -->
                     </div>
                     <h3>The Women of Malolos</h3>
                     <p>Portraits and photographs of the brave women who fought for education</p>
                 </div>
 
-                <div class="gallery-item" onclick="document.getElementById('gallery4').click()">
-                    <input type="file" id="gallery4" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-4')">
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-4">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">🎭</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187428092-f493a65b-d41f-46b2-8c1e-d2caba4a7930.jpg" alt="Jose Rizal">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="YOUR_IMAGE_URL" alt="Jose Rizal"> -->
                     </div>
                     <h3>Jose Rizal</h3>
                     <p>Philippine national hero and advocate for education and reform</p>
                 </div>
 
-                <div class="gallery-item" onclick="document.getElementById('gallery5').click()">
-                    <input type="file" id="gallery5" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-5')">
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-5">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">🏫</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187458538-c70c6687-975d-4f5e-a0b4-144ed9bafa33.jpg" alt="Education in Colonial Philippines">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="https://image2url.com/r2/default/images/1770187458538-c70c6687-975d-4f5e-a0b4-144ed9bafa33.jpg" alt="Education in Colonial Philippines"> -->
                     </div>
                     <h3>Education in Colonial Philippines</h3>
                     <p>Images of schools and educational institutions during Spanish rule</p>
                 </div>
 
-                <div class="gallery-item" onclick="document.getElementById('gallery6').click()">
-                    <input type="file" id="gallery6" accept="image/*" style="display: none;" onchange="loadGalleryImage(event, 'gallery-img-6')">
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
                     <div class="gallery-placeholder" id="gallery-img-6">
-                        <div class="gallery-upload-text">
-                            <div class="gallery-upload-icon">✊</div>
-                            <div>Click to add image</div>
-                        </div>
+                        <img src="https://image2url.com/r2/default/images/1770187544135-79417f95-3261-45ef-998d-4b91e5cdf74e.jpg" alt="Filipino Women's Empowerment">
+                        <!-- TO ADD IMAGE: Uncomment the line below and replace 'YOUR_IMAGE_URL' with your image URL -->
+                        <!-- <img src="YOUR_IMAGE_URL" alt="Filipino Women's Empowerment"> -->
                     </div>
                     <h3>Filipino Women's Empowerment</h3>
                     <p>Historical documentation of the women's rights movement in the Philippines</p>
@@ -715,53 +724,49 @@
     <!-- Resources Page -->
     <div id="resources-page" class="page">
         <div class="resources-content">
-            <h1 class="section-title">Primary Sources on Jose Rizal</h1>
+            <h1 class="section-title">Resources</h1>
 
             <div class="resources-section">
-                <h2>Essential Readings</h2>
+                <h2>1. Primary Sources</h2>
                 <ul>
-                    <li><strong>Noli Me Tangere (1887)</strong> - Rizal's first novel exposing the social conditions of the Philippines</li>
-                    <li><strong>El Filibusterismo (1891)</strong> - The sequel presenting a more radical view of reform</li>
-                    <li><strong>Letter to the Women of Malolos (1889)</strong> - Encouraging women's education and empowerment</li>
-                    <li><strong>La Indolencia de los Filipinos</strong> - Essay analyzing Filipino indolence under colonial rule</li>
-                    <li><strong>The Philippines a Century Hence</strong> - Articles forecasting political development</li>
+                    <li><strong>Full text of Letter to the Women of Malolos</strong><br>
+                    <a href="https://www.facebook.com/share/p/1HGFv6wuvp/" target="_blank" style="color: #D4E157;">https://www.facebook.com/share/p/1HGFv6wuvp/</a></li>
+                    
+                    <li><strong>English translations</strong><br>
+                    <a href="https://www.studocu.com/ph/document/de-la-salle-lipa/bachelor-of-science-in-accountancy/to-the-young-woman-of-malolos/48096719" target="_blank" style="color: #D4E157;">https://www.studocu.com/ph/document/de-la-salle-lipa/bachelor-of-science-in-accountancy/to-the-young-woman-of-malolos/48096719</a></li>
+                    
+                    <li><strong>Rizal's letters and essays</strong><br>
+                    <a href="https://www.academia.edu/113999121/JOSE_RIZALS_LETTER_TO_THE_WOMEN_OF_MALOLOS" target="_blank" style="color: #D4E157;">https://www.academia.edu/113999121/JOSE_RIZALS_LETTER_TO_THE_WOMEN_OF_MALOLOS</a></li>
                 </ul>
             </div>
 
             <div class="resources-section">
-                <h2>Recommended Books</h2>
+                <h2>2. Scholarly Articles</h2>
                 <ul>
-                    <li>"The Making of a Hero: The Story of Jose Rizal" by Austin Coates</li>
-                    <li>"Rizal Without the Overcoat" by Ambeth R. Ocampo</li>
-                    <li>"Jose Rizal: Life, Works, and Writings" by Gregorio F. Zaide</li>
-                    <li>"Noli Me Tangere: A Complete English Translation" (Various editions)</li>
+                    <li><strong>Academic studies on Rizal and women's education</strong><br>
+                    <a href="https://www.researchgate.net/publication/391861395_Silenced_Voices_A_Study_On_Women's_Oppression_During_The_Time_Of_Jose_Rizal_And_Its_Echoes_In_Today's_Struggles_For_Gender_Equality_In_The_Philippines" target="_blank" style="color: #D4E157;">https://www.researchgate.net/publication/391861395_Silenced_Voices_A_Study_On_Women's_Oppression_During_The_Time_Of_Jose_Rizal...</a></li>
+                    
+                    <li><strong>Gender studies related to colonial Philippines</strong><br>
+                    <a href="https://www.researchgate.net/publication/364318364_Filipinising_colonial_gender_values_A_history_of_gender_formation_in_Philippine_higher_education" target="_blank" style="color: #D4E157;">https://www.researchgate.net/publication/364318364_Filipinising_colonial_gender_values_A_history_of_gender_formation_in_Philippine_higher_education</a></li>
                 </ul>
             </div>
 
             <div class="resources-section">
-                <h2>Digital Resources</h2>
+                <h2>3. Other Relevant Websites</h2>
                 <ul>
-                    <li>Project Gutenberg - Free digital copies of Rizal's works</li>
-                    <li>National Historical Commission of the Philippines (NHCP) website</li>
-                    <li>Rizal Library digital archives</li>
-                    <li>Philippine National Museum online collections</li>
-                    <li>University of the Philippines Diliman - Rizal Studies resources</li>
-                </ul>
-            </div>
-
-            <div class="resources-section">
-                <h2>Museums and Historical Sites</h2>
-                <ul>
-                    <li>Rizal Shrine in Calamba, Laguna (birthplace)</li>
-                    <li>Fort Santiago, Intramuros, Manila (final detention)</li>
-                    <li>Rizal Park (Luneta), Manila</li>
-                    <li>Rizal Museum in Fort Santiago</li>
-                    <li>Barasoain Church, Malolos, Bulacan (related to the Women of Malolos)</li>
+                    <li><strong>National Historical Commission of the Philippines</strong><br>
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/" target="_blank" style="color: #D4E157;">https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/</a></li>
+                    
+                    <li><strong>Official Rizal websites</strong><br>
+                    <a href="https://www.joserizal.com/" target="_blank" style="color: #D4E157;">https://www.joserizal.com/</a></li>
+                    
+                    <li><strong>Philippine history and culture portals</strong><br>
+                    <a href="https://www.britannica.com/place/Philippines" target="_blank" style="color: #D4E157;">https://www.britannica.com/place/Philippines</a></li>
                 </ul>
             </div>
         </div>
     </div>
-
+    
     <script>
         function showPage(pageId) {
             // Hide all pages
@@ -781,58 +786,6 @@
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Handle portrait image upload
-        document.getElementById('portraitImageInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const portrait = document.querySelector('.rizal-portrait');
-                    portrait.innerHTML = `<img src="${event.target.result}" alt="Jose Rizal Portrait">`;
-                    
-                    // Save to localStorage
-                    localStorage.setItem('portraitImage', event.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Handle gallery image uploads
-        function loadGalleryImage(event, containerId) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const container = document.getElementById(containerId);
-                    container.innerHTML = `<img src="${e.target.result}" alt="Gallery Image">`;
-                    
-                    // Save to localStorage
-                    localStorage.setItem(containerId, e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // Load saved images on page load
-        window.addEventListener('load', function() {
-            // Load portrait image
-            const savedPortrait = localStorage.getItem('portraitImage');
-            if (savedPortrait) {
-                const portrait = document.querySelector('.rizal-portrait');
-                portrait.innerHTML = `<img src="${savedPortrait}" alt="Jose Rizal Portrait">`;
-            }
-
-            // Load gallery images
-            for (let i = 1; i <= 6; i++) {
-                const galleryId = `gallery-img-${i}`;
-                const savedGallery = localStorage.getItem(galleryId);
-                if (savedGallery) {
-                    const container = document.getElementById(galleryId);
-                    container.innerHTML = `<img src="${savedGallery}" alt="Gallery Image">`;
-                }
-            }
-        });
     </script>
 </body>
 </html>
